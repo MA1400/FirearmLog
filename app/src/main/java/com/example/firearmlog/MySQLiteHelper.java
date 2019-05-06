@@ -29,7 +29,7 @@ class MySQLiteHelper  extends SQLiteOpenHelper {
           private static final String DATABASE_NAME = "firearm.db";     // constant for the database name
           //This variable serves as a constant for the DATABASE version.
           //Incremented the version of the database so Android deletes the old one and creates a new one with our new field
-          private static final int DATABASE_VERSION = 101;
+          private static final int DATABASE_VERSION = 102;
 
           /*
            * This statement defines a database creation sql statement.
@@ -40,6 +40,7 @@ class MySQLiteHelper  extends SQLiteOpenHelper {
                   + COLUMN_ID + " integer primary key autoincrement, "
                   + COLUMN_TYPE_OF_FIREARM + " TEXT not null,"
                   + COLUMN_ROUND_COUNT + " TEXT,"
+                  + COLUMN_CALIBER + " TEXT,"
                   + COLUMN_RIFLE_NAME + " TEXT,"
                   + COLUMN_WEIGHT + " TEXT,"
                   + COLUMN_BARREL_LENGTH + " TEXT,"
@@ -51,7 +52,6 @@ class MySQLiteHelper  extends SQLiteOpenHelper {
 
               // Use the application context, which will ensure that you
               // don't accidentally leak an Activity's context.
-              // See this article for more information: http://bit.ly/6LRzfx
               if (sInstance == null) {
                   sInstance = new MySQLiteHelper(context.getApplicationContext());
               }
